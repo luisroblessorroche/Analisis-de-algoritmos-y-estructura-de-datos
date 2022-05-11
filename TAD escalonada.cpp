@@ -72,7 +72,7 @@ T& elemento(posicion pos);
 
 
 
-//Métodos de la clase:
+//implementación de los métodos de la clase:
 
 
 //precondición

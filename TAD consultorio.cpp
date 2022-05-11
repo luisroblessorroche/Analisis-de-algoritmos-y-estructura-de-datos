@@ -81,6 +81,7 @@ class Consultorio
 posicion primera();
 posicion fin();
 posicion siguiente();
+posicion buscar(const T& x);
 T& elemento(posicion pos);
 void insertar(const T& x, posicion pos);
 void eliminar(posicion pos);
@@ -91,7 +92,7 @@ void pop();
 const T& frente() const;
 bool vacia();
 
-//Métodos de la clase:
+//implementación de los métodos de la clase:
 
 //Precondición:
 //Postcondición:crea un consultorio vacio
