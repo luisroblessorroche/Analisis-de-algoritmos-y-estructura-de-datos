@@ -1,3 +1,5 @@
+//Luis Robles Sorroche
+
 //TAD ESCALONADA
 
 /*
@@ -68,6 +70,11 @@ void insertar(const T& x, posicion pos);
 void eliminar(posicion pos);
 T& elemento(posicion pos);
 
+
+
+//Métodos de la clase:
+
+
 //precondición
 //postcondición:crea una función constante f(x) definida por x 
 Escalonada::Escalonada(double x)
@@ -126,14 +133,22 @@ void Escalonada::eliminar_escalon(double x)
 	}
 }
 
-//Precondicion:La lista no esta vacia
+//Precondicion: el punto x se encuentra en la lista
 //Postcondición:devuelve el punto y que le corresponde al salto cuyo eje x es el valor x que le pasamos
 double Escalonada::valor_fun(double x)
 {
-	assert(L.primera() != L.fin());
+	pos_assert = p;
+	bool encontrado = false;
+	while(pos_assert != L.fin() && !encontrado)
+	{
+		if(L.elemento(pos_assert).x == x)
+		{
+			encontrado = true;
+		}
+	}
+	assert(encontrado);
 
 	pos = p;
-	bool encontrado = false;
 	while(pos != L.fin())
 	{
 		if(L.elemento(pos).x == x)
@@ -144,11 +159,11 @@ double Escalonada::valor_fun(double x)
 	}
 }
 
-//Precondición:La lista no esta vacía
+//Precondición:La lista no esta vacia
 //Postcondición: devuelve la coordenada y más pequeña de todos los saltos de la lista
 double Escalonada::valor_min()
 {
-	assert(L.primera() != L.fin());
+	assert(L.primera != L.fin());
 
 	pos = p;
 	double min = L.elemento(pos).y;
