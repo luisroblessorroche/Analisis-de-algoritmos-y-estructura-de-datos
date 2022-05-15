@@ -105,7 +105,7 @@ Consultorio::Consultorio()
 //Postcondición: inserta un nuevo medico a la lista si este no estaba antes
 void Consultorio::alta_medico(medico med)
 {
-	pos = p;
+	posicion pos = p;
 	bool encontrado = false;
 	while(pos != L.fin() && !encontrado)
 	{
@@ -127,7 +127,7 @@ void Consultorio::alta_medico(medico med)
 //Postcondición:da de baja al medico cuya id corresponda con el que le pasamos
 void Consultorio::baja_medico(medico med)
 {
-	pos = p;
+	posicion pos = p;
 	bool encontrado = false
 	while(pos != L.fin() && !encontrado)
 	{
@@ -145,7 +145,7 @@ void Consultorio::baja_medico(medico med)
 //insertará tambien al medico en la lista
 void Consultorio::insertar_paciente(medico med, paciente pa)
 {
-	pos = p;
+	posicion pos = p;
 	bool encontrado = false;
 	while(pos != L.fin() && !encontrado)
 	{
@@ -171,7 +171,7 @@ const paciente Consultorio::consultar_paciente_a_atender(medico med) const
 {
 	assert(L.buscar(med) != L.fin());
 
-	pos = p;
+	posicion pos = p;
 	while(pos != L.fin())
 	{
 		if(L.elemento(pos).id_med == med.id_med)
@@ -188,7 +188,7 @@ const paciente Consultorio::consultar_paciente_a_atender(medico med) const
 //Postcondición: atiende al paciente que le toca ser atendido por parte del medico
 void Consultorio::atender_paciente(medico med)
 {
-	pos = p;
+	posicion pos = p;
 	bool encontrado = false;
 	while(pos != L.fin() && !encontrado)
 	{
@@ -211,7 +211,7 @@ bool Consultorio::tiene_pacientes(medico med)
 {
 	assert(L.buscar(med) != L.fin());
 
-	pos = p;
+	posicion pos = p;
 	while(pos = L.fin())
 	{
 		if(L.elemento(pos).id_med == med.id_med)
