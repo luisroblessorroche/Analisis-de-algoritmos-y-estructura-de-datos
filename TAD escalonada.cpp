@@ -28,8 +28,8 @@ La parte privada de la lista enlazada es la siguiente
 struc nodo
 {
 	T elto;
-	nodo* ant, sig;
-	nodo(const T& e, nodo* a = nullptr, nodo* s = nullptr): elto(e), ant(a), sig(s){}
+	nodo* sig;
+	nodo(const T& e, nodo* s = nullptr): elto(e), sig(s){}
 }
 nodo* L;
 
@@ -58,7 +58,6 @@ class Escalonada
 		~Escalonada()
 	private:
 		ListaE<salto>L;
-		ListaE<salto>::posicion p = L.primera();
 }
 
 
@@ -90,7 +89,7 @@ Escalonada::Escalonada(double x)
 //Postcondición: inserta el salto de manera ordeanada en la lista o modifica la coordenada y con la del nuevo salto si ya exisistia el punto x 
 void Escalonada::insertar_escalon(salto sal)
 {
-	posicion pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	bool insertado = false;
 	while(pos != L.fin() && !insertado)
 	{
@@ -119,7 +118,7 @@ void Escalonada::insertar_escalon(salto sal)
 //Postcondición:elimina el salto cuyo punto x corresponde con el que le pasamos
 void Escalonada::eliminar_escalon(double x)
 {
-	posicion pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	bool encontrado = false;
 	while(pos != L.fin() && !encontrado)
 	{
@@ -137,7 +136,7 @@ void Escalonada::eliminar_escalon(double x)
 //Postcondición:devuelve el punto y que le corresponde al salto cuyo eje x es el valor x que le pasamos
 double Escalonada::valor_fun(double x)
 {
-	posicion pos_assert = p;
+	ListaE<salto>::posicion pos_assert = L.primera();
 	bool encontrado = false;
 	while(pos_assert != L.fin() && !encontrado)
 	{
@@ -148,7 +147,7 @@ double Escalonada::valor_fun(double x)
 	}
 	assert(encontrado);
 
-	posicion pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	while(pos != L.fin())
 	{
 		if(L.elemento(pos).x == x)
@@ -165,7 +164,7 @@ double Escalonada::valor_min()
 {
 	assert(L.primera != L.fin());
 
-	posicion pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	double min = L.elemento(pos).y;
 	pos = L.siguiente(pos);
 
@@ -187,7 +186,7 @@ double Escalonada::valor_max()
 {
 	assert(L.primera != L.fin());
 
-	posicion pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	double max = L.elemento(pos).y;
 	pos = L.siguiente(pos);
 
@@ -207,7 +206,7 @@ double Escalonada::valor_max()
 //Postcondición: hace una translación de la función w unidades horizontales(x) y z unidades verticales(y)
 void Escalonada::translación(double w, double z)
 {
-	pos = p;
+	ListaE<salto>::posicion pos = L.primera();
 	while(pos != L.fin())
 	{
 		L.elemento(pos).x += w;
