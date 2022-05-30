@@ -54,7 +54,7 @@ class Texto()
 		Texto();
 		MostrarTexto();
 	private:
-		ListaEnla<linea>L;
+		ListaEnla<linea>L_;
 }
 
 //Las operaciones del TAD que tenemos que realizar son:
@@ -63,6 +63,7 @@ class Texto()
 //postcondición: devuelve el texto con los cambios realizados en funcion a sus caracteres especiales
 linea Texto::MostrarTexto()
 {
+	ListaEnla<linea>L(L_);
 	PilaD<char>aux;
 	ListaEnla<linea>::posicion p = L.primera();
 	while(p != L.fin())
@@ -79,13 +80,15 @@ linea Texto::MostrarTexto()
 					L.elemento(p).P.pop();
 				}
 			}
-			if(L.elemento(p).P.tope() == '#')
+			else if(L.elemento(p).P.tope() == '#')
 			{
-			
 				eliminado = true;
 			}
-			aux.push(L.elemento(p).P.tope());
-			L.elemento(p).P.pop();
+			else
+			{
+				aux.push(L.elemento(p).P.tope());
+				L.elemento(p).P.pop();
+			}
 		}
 		if(eliminado)
 		{
