@@ -173,17 +173,6 @@ void Diccionario::eliminar_traduccion(string palabra_ing, espanol esp)
 //postcondicion: devuelve la lista de traducciones españolas
 const espanol Diccionario::Diccionario(string palabra_ing) const
 {
-	ListaE<ingles>::posicion p_assert = L.primera();
-	bool bool_assert = false;
-	while(p_assert != L.fin() && !bool_assert)
-	{
-		if(L.elemento(p_assert).palabra_ing == palabra_ing)
-		{
-			bool_assert = true;
-		}
-		p_assert = L.siguiente(p_assert);
-	}
-	assert(bool_assert);
 
 	ListaE<ingles>::posicion p = L.primera();
 	while(p != L.fin())
@@ -194,8 +183,7 @@ const espanol Diccionario::Diccionario(string palabra_ing) const
 		}
 		p = L.siguiente(p);
 	}
-
-	//assert(p != L.fin());
+	assert(false);//no debe alcanzar este punto nunca(no existe la palabra inglesa)
 }
 
 //precondicion:
