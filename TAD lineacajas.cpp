@@ -94,6 +94,7 @@ LineaCajas::abrir_caja(int id, int x)
 	x = x--;
 	assert(x>=0 && x<50);
 	assert(v.at(x).abierto == false);
+	assert(id >= 100 && id<1000);
 
 	v.at(x).id_cajero = id;
 	v.at(x).abierto = true;
@@ -135,6 +136,7 @@ void LineaCajas::sustituir_cajero(int id, int x)
 	x = x--;
 	assert(x>=0 && x<50);
 	assert(v.at(x).abierto == true);
+	assert(id>=100 && id < 1000);
 
 	v.at(x).id_cajero = id;
 }
