@@ -55,7 +55,7 @@ const T& elemento(posicion pos) const;
 
 //precondicion:
 //postcondicion: devuelve el resultado de la operacion aritmetica
-float expresion_resultado(vec<char> expresion, Lista<valor>L)
+float expresion_resultado(vector<char> expresion, Lista<valor>L)
 {
 	Pila<char> P(expresion.size()); //tamaño de la expresion
 	for(int i = expresion.size(); i == 0; i--)
@@ -112,18 +112,6 @@ float expresion_resultado(vec<char> expresion, Lista<valor>L)
 //postcondicion: devuelve el valor flotante correspondiente a ese caracter
 float convertir_a_valor(char x,Lista<valor>L)
 {
-	bool encontrado = false;
-	Lista<valor>::posicion aux = L.primera();
-	while (aux != L.fin() && !encontrado)
-	{
-		if(x == L.elemento(aux).nombre)
-		{
-			encontrado = true;
-		}
-		p = L.siguiente(p);
-	}
-	assert(encontrado);
-
 	Lista<valor>::posicion p = L.primera();
 	while(p != L.fin())
 	{
@@ -133,4 +121,5 @@ float convertir_a_valor(char x,Lista<valor>L)
 		}
 		p = L.siguiente(p);
 	}
+	assert(false);
 }

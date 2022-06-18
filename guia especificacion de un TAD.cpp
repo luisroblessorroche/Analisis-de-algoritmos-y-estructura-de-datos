@@ -43,7 +43,15 @@
 	size_t Lmax; //tamaño del vector
 	size_t n; // longitud de la lista
 
-	//----Lista dinamica----
+		//----Lista dinamica enlazada simple----
+	struct nodo
+	{
+		T elto;
+		nodo* sig;
+		nodo(const T& e, nodo* s = nullptr): elto(e), sig(s){}
+	}
+
+	//----Lista dinamica doblemente enlazada----
 	struct nodo
 	{
 		T elto;
