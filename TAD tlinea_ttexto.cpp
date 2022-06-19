@@ -72,9 +72,8 @@ T& elemento(posicion pos) const
 //precondicion:
 //postcondicion: intercambia toda ocurrencia de una palabra por otra del texto
 
-void intercambio(string palabra_old, string palabra_new)
+void intercambio(ListaEnla<tLinea>L;string palabra_old, string palabra_new)
 {
-	ListaE<tLinea>L;
 	Pila<char>aux;
 	string palabra;
 	ListaE<tLinea>::posicion p = L.primera();

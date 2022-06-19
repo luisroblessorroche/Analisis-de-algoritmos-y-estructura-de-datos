@@ -46,22 +46,12 @@ struct linea
 	PilaD<char>P;
 }
 
-//Aunque no pida hacerla, la clase texto quedará mas o menos asi:
-
-class Texto()
-{
-	public:
-		Texto();
-		MostrarTexto();
-	private:
-		ListaEnla<linea>L_;
-}
 
 //Las operaciones del TAD que tenemos que realizar son:
 
 //precondición:
 //postcondición: devuelve el texto con los cambios realizados en funcion a sus caracteres especiales
-linea Texto::MostrarTexto()
+ListaEnla<linea> MostrarTexto(ListaEnla<linea> L_)
 {
 	ListaEnla<linea>L(L_);
 	PilaD<char>aux;
