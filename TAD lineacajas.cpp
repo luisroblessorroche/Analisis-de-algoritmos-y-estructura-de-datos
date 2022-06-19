@@ -71,15 +71,13 @@ class LineaCajas
 		float cambiar_turno_trabajo_y_devolver_recaudacion_total();
 		float cerrar_cajas_devolver_recaudacion_total();
 	private:
-		vector<caja> v;
+		vector<caja> v(50);
 }
 
 //precondicion:
 //postcondicion:crea 50 cajas cerradas
 LineaCajas::LineaCajas()
 {
-	v = new vector<caja>v(50);
-
 	for(int i = 0;i<50;i++)
 	{
 		v.at(i).num_caja = i+1;

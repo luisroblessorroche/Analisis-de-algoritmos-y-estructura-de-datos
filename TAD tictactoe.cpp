@@ -36,18 +36,17 @@ class TicTacToe()
 		bool empate() const;
 		~TicTacToe();
 	private:
-		vector<char>v;
+		vector<char>v(9);
 }
 
 //precondicion:
 //postcondicion: crea un tablero vacio(de 9 casillas)
 TicTacToe::TicTacToe()
 {
-	v = new vector<char>v(9);
 
 	for(int i = 0; i<9; i++)
 	{
-		v.at(i) = -; //inicializar tablero vacio(todo a -)
+		v.at(i) = '-'; //inicializar tablero vacio(todo a -)
 	}
 }
 
