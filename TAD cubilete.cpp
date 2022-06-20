@@ -88,10 +88,5 @@ Pila<tCubo> juego(Pila<tCubo>P)
 			}
 		}
 	}
-	while(!aux.vacia())
-	{
-		P.push(aux.tope());
-		aux.pop();
-	}
-	return P;
+	return aux;
 }
