@@ -61,10 +61,11 @@ Simbolo::Simbolo()
 }
 
 
-//precondicion:
+//precondicion:el trazo es uno de los disponibles
 //postcondicion: inserta un nuevo trazo al final del simbolo
 void Simbolo::anadir_trazo(char trazo)
 {
+	assert(trazo == 'w' || trazo == 's' || trazo == 'a' || trazo == 'd');
 	P.push(trazo);
 }
 
