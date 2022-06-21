@@ -44,9 +44,9 @@ class Simbolo
 		Simbolo();
 		void anadir_trazo(char trazo);
 		void eliminar_n_trazos(int n);
-		char simetrico_x() const;
-		char simetrico_y() const;
-		char simetrico_xy() const;
+		Pila<char> simetrico_x() const;
+		Pila<char> simetrico_y() const;
+		Pila<char> simetrico_xy() const;
 	private:
 		Pila<char>P;
 }
@@ -92,7 +92,7 @@ void Simbolo::eliminar_n_trazos(int n)
 
 //precondicion:
 //postcondicion: devuelve el simetrico del simbolo con respecto al eje x
-char Simbolo::simetrico_x() const
+Pila<char> Simbolo::simetrico_x() const
 {
 	Pila<char>aux(P);//para no modificar la pila original
 	Pila<char>aux2;
@@ -127,7 +127,7 @@ char Simbolo::simetrico_x() const
 
 //precondicicion:
 //postcondicion: devuelve el simetrico del simbolo con respecto al eje y
-char Simbolo::simetrico_y() const
+Pila<char> Simbolo::simetrico_y() const
 {
 	Pila<char>aux(P);//para no modificar la pila original
 	Pila<char>aux2;
@@ -162,7 +162,7 @@ char Simbolo::simetrico_y() const
 
 //precondicion:
 //postcondicion: devuelve el simetrico del simbolo con respecto al eje x e y
-char Simbolo::simetrico_xy() const
+Pila<char> Simbolo::simetrico_xy() const
 {
 	Pila<char>aux(P);//copia para no modificar la pila original
 	PIla<char>aux2;
