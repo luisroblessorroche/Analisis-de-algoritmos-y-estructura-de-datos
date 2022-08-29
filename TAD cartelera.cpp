@@ -96,7 +96,7 @@ void Cartelera::anadir_sala(sala sal)
 {
 	ListaEnla<sala>::posicion p = L.primera();
 	bool insertada_existente = false;
-	while(p != L.fin() && !insertada)
+	while(p != L.fin() && !insertada_existente)
 	{
 		if(L.elemento(p).id_sala >= sal.id_sala)
 		{
@@ -119,8 +119,8 @@ void Cartelera::anadir_sala(sala sal)
 	}
 }
 
-//precondición: la sala que le pasamos esta ya almacenada (esto ya es un poco subjetivo, interpretalo como quieras)
-//postcondición: inserta un espectaculo en una sala YA EXISTENTE de  manera ordenada si es que no estaba ya insertada
+//precondición:
+//postcondición: inserta un espectaculo en una sala ya insertada de  manera ordenada si es que no estaba ya insertada
 void Cartelera::anadir_espectaculo(int id_sala, espectaculo esp)
 {
 	ListaEnla<sala>::posicion p=L.primera();
@@ -129,6 +129,7 @@ void Cartelera::anadir_espectaculo(int id_sala, espectaculo esp)
 	{
 		if(L.elemento(p).id_sala == id_sala)
 		{
+			encontrado = true;
 			ListaEnla<espectaculo>::posicion q = L.elemento(p).L2.primera();
 			bool insertado_existente = false;
 			while(q != L.elemento(p).L2.fin() && !insertada_existente)
@@ -153,10 +154,6 @@ void Cartelera::anadir_espectaculo(int id_sala, espectaculo esp)
 			}
 		}
 		p = L.siguiente(p);
-	}
-	if(!encontrado)
-	{
-		assert(false);//salta excepcion ya que no existia la sala para insertar el espectaculo
 	}
 }
 
@@ -190,6 +187,7 @@ void Cartelera::eliminar_espectaculo(int id_sala, int id_espectaculos)
 	{
 		if(L.elemento(p).id_sala == id_sala)
 		{
+			existe_sala = true;
 			ListaEnla<espectaculo>::posicion q = L.elemento(p).L2.primera();
 			bool existe_espectaculo = false;
 			while(q != L.elemento(p).L2.fin() && !existe_espectaculo)
@@ -224,7 +222,7 @@ ListaEnla<sala> Cartelera::mostrar_salas()
 ListaEnla<espectaculo> Cartelera::mostrar_espectaculos(int id_sala)
 {
 	ListaEnla<sala>::posicion p = L.primera();
-	while(p!= L.fin() && !existe_sala)
+	while(p!= L.fin())
 	{
 		if(id_sala == L.elemento(p).id_sala)
 		{
@@ -232,6 +230,6 @@ ListaEnla<espectaculo> Cartelera::mostrar_espectaculos(int id_sala)
 		}
 		p = L.siguiente(p);
 	}
-	assert(false)//no existe la sala. Solo ocurrira cuando
+	assert(false)//no existe la sala. Solo ocurrira cuando no exista la sala
 }
 

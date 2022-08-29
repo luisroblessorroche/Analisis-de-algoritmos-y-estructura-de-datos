@@ -35,7 +35,7 @@ class Estacion
 
 Estacion::Estacion(int n)
 {
-	L = Lista<int>L(n);
+	L = Lista<int>(n);
 	num_vias = n;
 }
 
